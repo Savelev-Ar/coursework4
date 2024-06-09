@@ -21,7 +21,9 @@ class Vacancies():
                         salary_to = vacancy.get('salary')['to']
                     else:
                         salary_to = 0
-                    result.append(Vacancies(vacancy.get('name'), salary_from, salary_to, vacancy.get('snippet').get('requirement'),  vacancy.get('alternate_url')))
+                    result.append(Vacancies(vacancy.get('name'), salary_from, salary_to,
+                                            vacancy.get('snippet').get('requirement').replace('<highlighttext>','').replace('</highlighttext>',''),
+                                            vacancy.get('alternate_url')))
         return result
 
     def __lt__(self, other):
@@ -30,4 +32,7 @@ class Vacancies():
         else:
             return self.salary_to < other.salary_to
     def __repr__(self):
-        return f'Вакансия: {self.name} , зарплата от {self.salary_from} до {self.salary_to}, ссылка: {self.url} , требования: {self.requirements}\n'
+        return (f'Вакансия : {self.name} ,'
+                f' зарплата: от {self.salary_from} до {self.salary_to},'
+                f' ссылка : {self.url} ,'
+                f' требования : {self.requirements} \n')
