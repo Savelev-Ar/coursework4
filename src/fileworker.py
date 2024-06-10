@@ -23,6 +23,7 @@ class JSONSaver():
         if not os.path.isdir("data"):
             os.mkdir("data")
         with open(self.filename, 'w', encoding='utf-8') as file:
+            list_ = []
             for vacancy in self.list_vacancies:
                 dict_= {}
                 dict_["name"] = vacancy.name
@@ -30,7 +31,8 @@ class JSONSaver():
                 dict_["salary_to"] = vacancy.salary_to
                 dict_["url"] = vacancy.url
                 dict_["requirements"] = vacancy.requirements
-                json.dump(dict_, file, indent=4, ensure_ascii=False)
+                list_.append(dict_)
+            json.dump(list_, file, indent=4, ensure_ascii=False)
 
     def load_file_to_json(self):
         with (open(self.filename, encoding='utf-8') as file):
