@@ -17,9 +17,9 @@ class JSONSaver():
         self.save_file()
 
     def save_file(self):
-        '''
+        """
         Метод для сохранения файла
-        '''
+        """
         if not os.path.isdir("data"):
             os.mkdir("data")
         with open(self.filename, 'w', encoding='utf-8') as file:
