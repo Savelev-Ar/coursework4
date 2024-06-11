@@ -16,7 +16,7 @@ class HHAPI(JobsParser):
     def __init__(self):
         self.url = 'https://api.hh.ru/vacancies'
         self.headers = {'User-Agent': 'HH-User-Agent'}
-        self.params = {'text': '', 'page': 0, 'per_page': 100}
+        self.params = {'text': '', 'page': 0, 'per_page': 100, 'currency' : 'RUR', 'only_with_salary' : True}
         self.vacancies = []
 
     def load_vacancies(self, keyword):

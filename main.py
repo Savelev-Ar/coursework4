@@ -1,12 +1,14 @@
-from utils import *
-from config import *
-from hh import *
-from vacancy import *
-from fileworker import *
+from src.utils import top_vacancies, filtered_vacancies
+from config import JSON_PATH
+from src.vacancy import Vacancies
+from src.fileworker import JSONSaver
+from src.hh import HHAPI
 
 
-# Функция для взаимодействия с пользователем
 def user_interaction():
+    """
+    Функция для взаимодействия с пользователем
+    """
     search_query = input("Введите поисковый запрос: ")
 
     # Получение вакансий  по запросу от пользователя
